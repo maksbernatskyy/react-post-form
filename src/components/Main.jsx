@@ -11,6 +11,20 @@ export default function Main() {
         public: true
     })
 
+    {/* Function for the onChange */}
+    function handleFormData(e) {
+
+        const value =
+           e.target.type === "checkbox" ?
+           e.target.checked : e.target.value
+
+
+        setFormData({
+            ...formData,
+            [e.target.name] : value
+        })
+    }
+
     return (
         <>
         <main>
@@ -32,26 +46,38 @@ export default function Main() {
                                 <input 
                                     className="w-25" 
                                     type="text"
-                                    placeholder="Author" 
+                                    placeholder="Author"
+                                    name="author"
+                                    value={formData.author}
+                                    onChange={handleFormData}
                                 />
                                 {/* Title */}
                                 <input 
                                     className="w-25" 
                                     type="text" 
                                     placeholder="Title"
+                                    name="title"
+                                    value={formData.title}
+                                    onChange={handleFormData}
                                 />
                                 {/* Body */}
                                 <input 
                                     className="w-25" 
                                     type="text"
                                     placeholder="Body" 
+                                    name="body"
+                                    value={formData.body}
+                                    onChange={handleFormData}
                                 />
                                 {/* Public */}
                                 <div className="align-self-start">
                                     <span className="fw-bold">Public?</span>
                                     <input 
                                         className="ms-3" 
-                                        type="checkbox" 
+                                        type="checkbox"
+                                        name="public" 
+                                        checked={formData.public}
+                                        onChange={handleFormData}
                                     />
                                 </div>
                             </div>
