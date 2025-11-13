@@ -3,6 +3,14 @@ import axios from "axios"
 
 export default function Main() {
 
+    {/* State of form */}
+    const [formData, setFormData] = useState({
+        author: '',
+        title: '',
+        body: '',
+        public: true
+    })
+
     return (
         <>
         <main>
