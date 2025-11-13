@@ -80,6 +80,10 @@ export default function Main() {
                                         onChange={handleFormData}
                                     />
                                 </div>
+                                {/* Button submit */}
+                                <button className="w-25 btn btn-primary" type="submit">
+                                    Invia
+                                </button>
                             </div>
                         </form>
                     </div>
