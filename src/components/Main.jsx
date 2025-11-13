@@ -18,7 +18,6 @@ export default function Main() {
            e.target.type === "checkbox" ?
            e.target.checked : e.target.value
 
-
         setFormData({
             ...formData,
             [e.target.name] : value
@@ -33,7 +32,8 @@ export default function Main() {
             headers: {"Content-Type": "application/json"},
         })
         .then((res) => {
-            alert('Post inviato!', res.data)
+            alert('Messaggio inviato')
+            console.log('Post inviato', res.data)
             setFormData({author: '', title: '', body: '', public: false})
         })
         .catch((err) => {
@@ -56,7 +56,7 @@ export default function Main() {
                     {/* Card Bottom */}
                     <div className="card-body">
                         {/* Form */}
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div className="d-flex flex-column gap-3">
                                 {/* Author */}
                                 <input 
