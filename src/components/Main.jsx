@@ -8,7 +8,7 @@ export default function Main() {
         author: '',
         title: '',
         body: '',
-        public: true
+        public: false
     })
 
     {/* Function for the onChange */}
@@ -22,6 +22,22 @@ export default function Main() {
         setFormData({
             ...formData,
             [e.target.name] : value
+        })
+    }
+
+    {/* Function submit */}
+    function handleSubmit(e) {
+        e.preventDefault()
+
+        axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", formData, {
+            headers: {"Content-Type": "application/json"},
+        })
+        .then((res) => {
+            alert('Post inviato!', res.data)
+            setFormData({author: '', title: '', body: '', public: false})
+        })
+        .catch((err) => {
+            console.error('Ops, è successo un problemino:', err)
         })
     }
 
