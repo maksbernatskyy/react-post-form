@@ -47,14 +47,13 @@ export default function Main() {
                                     placeholder="Body" 
                                 />
                                 {/* Public */}
-                                <input 
-                                    className="align-self-start" 
-                                    type="checkbox" 
-                                />
-                                <input
-                                    className="align-self-start" 
-                                    type="checkbox" 
-                                />
+                                <div className="align-self-start">
+                                    <span className="fw-bold">Public?</span>
+                                    <input 
+                                        className="ms-3" 
+                                        type="checkbox" 
+                                    />
+                                </div>
                             </div>
                         </form>
                     </div>
